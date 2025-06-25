@@ -4,7 +4,8 @@
     "module": "CommonJS",                      // Required for Node.js
     "rootDir": "src",                          // Your source code folder
     "outDir": "dist",                          // Compiled JavaScript output
-    "esModuleInterop": true,                   // Allows default imports from CommonJS modules
+    "esModuleInterop": true, 
+    "moduleResolution": "node",                  // Allows default imports from CommonJS modules
     "forceConsistentCasingInFileNames": true,  // Avoid case-related import issues
     "strict": true,                            // Enable all strict type checks
     "skipLibCheck": true                       // Speeds up build by skipping type checks of node_modules
