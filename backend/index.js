@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import userRoutes from './routes/user.js';
-
+import noteRoutes from './routes/note.js';
+import todoRoutes from './routes/todo.js';
+import requireAuth from './middleware/requireAuth.js';
 
 // load env variables
 dotenv.config();
@@ -16,13 +18,18 @@ const app = express();
 app.use(cors()); // so that our backend deployed on a diff domain accepts req from frontend on another domain
 app.use(express.json());
 
+// PUBLIC ROUTES
 app.get('/', (req, res) => {
     res.json({message: "Hello"});
 })
-
-
-// routes
 app.use('/api/user', userRoutes);
+
+
+// PROTECTED ROUTES
+// middleware
+app.use(requireAuth);
+app.use('/api/note', noteRoutes);
+app.use('/api/todo', todoRoutes);
 
 
 // set up the connection to db before the server is running
