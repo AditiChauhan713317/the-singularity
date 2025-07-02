@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import userRoutes from './routes/user.js';
+
 
 // load env variables
 dotenv.config();
@@ -17,6 +19,11 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.json({message: "Hello"});
 })
+
+
+// routes
+app.use('/api/user', userRoutes);
+
 
 // set up the connection to db before the server is running
 // hence await it
