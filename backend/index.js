@@ -3,8 +3,11 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import userRoutes from './routes/user.js';
+import githubRoutes from './routes/github.js';
 import noteRoutes from './routes/note.js';
 import todoRoutes from './routes/todo.js';
+import bookmarkRoutes from './routes/bookmark.js';
+import quoteRoutes from './routes/quote.js';
 import requireAuth from './middleware/requireAuth.js';
 
 // load env variables
@@ -28,8 +31,11 @@ app.use('/api/user', userRoutes);
 // PROTECTED ROUTES
 // middleware
 app.use(requireAuth);
+app.use('/api/github', githubRoutes);
 app.use('/api/note', noteRoutes);
 app.use('/api/todo', todoRoutes);
+app.use('/api/bookmark', bookmarkRoutes);
+app.use('/api/quote', quoteRoutes);
 
 
 // set up the connection to db before the server is running

@@ -21,6 +21,10 @@ const userSchema = new Schema({
     profileUrl: {
         type: String,
     }, 
+    githubUsername: {
+        type: String,
+        default: null,
+    },
     widgets: {
          type: [Object],
          default: [],
@@ -32,7 +36,9 @@ const userSchema = new Schema({
     theme: {
         type: String,
         default: 'dark'
-    }
+    },
+ 
+
 }, {timestamps: true}) // createdAt, updatedAt
 
 
