@@ -10,6 +10,7 @@ import bookmarkRoutes from './routes/bookmark.js';
 import quoteRoutes from './routes/quote.js';
 import widgetRoutes from './routes/widget.js';
 import codingStatsRoutes from './routes/codingStats.js';
+import pomodoroRoutes from './routes/pomodoro.js';
 import requireAuth from './middleware/requireAuth.js';
 
 // load env variables
@@ -40,6 +41,7 @@ app.use('/api/bookmark', bookmarkRoutes);
 app.use('/api/quote', quoteRoutes);
 app.use('/api/widget', widgetRoutes);
 app.use('/api/coding/', codingStatsRoutes);
+app.use('/api/pomodoro', pomodoroRoutes);
 
 // set up the connection to db before the server is running
 // hence await it
