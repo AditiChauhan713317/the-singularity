@@ -11,6 +11,7 @@ import quoteRoutes from './routes/quote.js';
 import widgetRoutes from './routes/widget.js';
 import codingStatsRoutes from './routes/codingStats.js';
 import pomodoroRoutes from './routes/pomodoro.js';
+import transactionRoutes from './routes/transaction.js';
 import requireAuth from './middleware/requireAuth.js';
 
 // load env variables
@@ -42,6 +43,7 @@ app.use('/api/quote', quoteRoutes);
 app.use('/api/widget', widgetRoutes);
 app.use('/api/coding/', codingStatsRoutes);
 app.use('/api/pomodoro', pomodoroRoutes);
+app.use('/api/finance', transactionRoutes);
 
 // set up the connection to db before the server is running
 // hence await it
