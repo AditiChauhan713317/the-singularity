@@ -20,7 +20,7 @@ const noteReducer = (state, action) => {
 export const NoteContextProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(noteReducer, {
-        notes: []
+        notes: null
     })
 
     

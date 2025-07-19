@@ -19,7 +19,7 @@ const pomodoroReducer = (state, action) => {
 
 export const PomodoroContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(pomodoroReducer, {
-    pomodoroSessions: [],
+    pomodoroSessions: null,
   });
 
   return (

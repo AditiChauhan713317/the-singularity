@@ -26,7 +26,7 @@ const bookmarkReducer = (state, action) => {
 
 export const BookmarkContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(bookmarkReducer, {
-    bookmarks: [],
+    bookmarks: null,
   });
 
   return (
