@@ -1,4 +1,4 @@
-import { BookmarkContext } from "../context/AuthContext";
+import { BookmarkContext } from "../context/BookmarkContext";
 import { useContext } from "react";
 
 export const useBookmarkContext = () => {

@@ -1,7 +1,7 @@
 import { useAuthContext } from "./useAuthContext";
 import { useState } from 'react';
 
-const useSignup = () => {
+export const useSignup = () => {
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false)
@@ -9,16 +9,16 @@ const useSignup = () => {
 
     const {dispatch} = useAuthContext();
 
-    const signup = async (email, password) => {
+    const signup = async (username, email, password, profileUrl) => {
 
         try {
             setError(null);
             setLoading(true);
 
-            const response = fetch('api/user/signup', {
+            const response = await fetch('api/user/signup', {
                 method: 'POST', 
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({email, password})
+                body: JSON.stringify({username, email, password, profileUrl})
             })
 
             const json = await response.json();
@@ -26,9 +26,12 @@ const useSignup = () => {
             if(!response.ok) {
                 setError(json.error || 'Signup failed')
             }
-
-            localStorage.setItem('user', JSON.stringify(json));
+            else {
+                localStorage.setItem('user', JSON.stringify(json));
             dispatch({type: 'LOGIN', payload: json});
+            }
+
+            
 
         } catch (error) {
             setError(error.message || 'Something went wrong')
@@ -38,6 +41,7 @@ const useSignup = () => {
         }
 
     }
-    return {error, login, signup};
+    return {error, setError, loading, setLoading, signup};
 
 }
+

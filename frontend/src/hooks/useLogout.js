@@ -3,7 +3,7 @@ import { useNoteContext } from './useNoteContext'
 import { useTodoContext } from "./useTodoContext";
 import { useBookmarkContext } from "./useBookmarkContext";
 import { useTransactionContext } from "./useTransactionContext";
-import { usePomodoroConext } from "./usePomodoroConext";
+import { usePomodoroContext } from "./usePomodoroContext";
 
 
 export const useLogout = () => {
@@ -11,7 +11,7 @@ export const useLogout = () => {
         const { dispatch } = useAuthContext();
         const { dispatch: todoDispatch} = useTodoContext();
         const { dispatch: noteDispatch } = useNoteContext();
-        const { dispatch: pomodoroDispatch } = usePomodoroConext();
+        const { dispatch: pomodoroDispatch } = usePomodoroContext();
         const { dispatch: bookmarkDispatch } = useBookmarkContext();
         const { dispatch: transactionDispatch } = useTransactionContext();
 

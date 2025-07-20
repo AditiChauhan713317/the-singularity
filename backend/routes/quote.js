@@ -1,5 +1,6 @@
 import express from 'express';
 import  {createQuote, deleteQuote, editQuote, getAllQuotes} from '../controllers/quote.js';
+import { quoteUpload } from '../middleware/quoteUpload.js';
 
 
 const router = express.Router();
@@ -8,7 +9,7 @@ const router = express.Router();
 router.get('/quotes', getAllQuotes);
 
 // create quote
-router.post('/qutoes', createQuote);
+router.post('/qutoes', quoteUpload.single('quote'),  createQuote);
 
 // delete quote
 router.delete('/quotes/:id', deleteQuote);
