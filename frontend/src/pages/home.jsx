@@ -1,5 +1,7 @@
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext  } from '../hooks/useAuthContext';
+import Todos from '../components/Todos';
+
 const Home = () => {
 
     const { logout } = useLogout();
@@ -8,9 +10,11 @@ const Home = () => {
     return (
         <>
         <h1>Welcome!</h1>
-        <ul>
-            <li>{user.user.username}</li>
-        </ul>
+        <p>{user.username}</p>
+
+        <Todos />
+
+        
         <button onClick={logout}>Logout</button>
 </>
     )

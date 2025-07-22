@@ -9,7 +9,7 @@ const todoReducer = (state, action) => {
 
     case 'DELETE_TODO':
       return {
-        todos: state.todos.filter((t) => t._id !== action.payload._id),
+        todos: state.todos.filter((t) => t._id !== action.payload),
       };
 
     case 'ADD_TODO':
@@ -31,7 +31,7 @@ const todoReducer = (state, action) => {
 
 export const TodoContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todoReducer, {
-    todos: null,
+    todos: [],
   });
 
   return (

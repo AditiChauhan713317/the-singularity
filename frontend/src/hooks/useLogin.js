@@ -29,10 +29,13 @@ export const useLogin = () => {
             }
             else {
                 localStorage.setItem('user' ,JSON.stringify(json))
-                dispatch({type: 'LOGIN', payload: json})
-            }
-            
+                dispatch({ type: 'LOGIN', payload: {
+                ...json.user,
+                token: json.token
+                }});
 
+            }
+        
         } catch (error) {
             setError(error.message || 'Something went wrong')
         }
